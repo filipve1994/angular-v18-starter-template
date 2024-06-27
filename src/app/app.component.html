@@ -332,5 +332,25 @@
 <!-- * * * * * * * * * * End of Placeholder  * * * * * * * * * * * * -->
 <!-- * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * * -->
 
+<!--<span>{{ 'title' | transloco }}</span>-->
+
+
+<!--<span>{{ 'name' | transloco: { value: 'Filip' } }}</span>-->
+
+<ng-container *transloco="let t">
+  <h1>{{ t('main.title') }}</h1>
+  <p>{{ t('main.greeting', { name: 'John' }) }}</p>
+</ng-container>
+
+<h2>{{'pipe.title' | transloco}}</h2>
+<p>{{'pipe.greeting' | transloco: {name: 'Jill'} }}</p>
+
+<ng-container *transloco="let t">
+  <div style="display:flex; gap:1rem">
+    <span>Select your language:</span>
+    <button (click)="switchLanguage('en')">English</button>
+    <button (click)="switchLanguage('nl')">Dutch</button>
+  </div>
+</ng-container>
 
 <router-outlet />
